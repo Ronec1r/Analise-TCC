@@ -1,10 +1,3 @@
-# -----------------------------------------------------------------------------
-# Script de Análise de Dados - TCC: Impacto do VisuAlgo no Ensino de Árvores
-# Autor: Rone Clay Oliveira Andrade
-# Data: Dezembro/2025
-# Descrição: Processamento dos dados brutos ajustados e geração de gráficos.
-# -----------------------------------------------------------------------------
-
 # --- 0. CONFIGURAÇÃO INICIAL E IMPORTAÇÕES ---
 import pandas as pd
 import io
@@ -20,7 +13,16 @@ from sklearn.cluster import KMeans
 sns.set_style("ticks")
 plt.rcParams['figure.figsize'] = (10, 6)
 
-# --- 1. CARGA E PREPARAÇÃO DOS DADOS (Fonte Única) ---
+# --- 1. CARGA E PREPARAÇÃO DOS DADOS (CORRIGIDO PARA BATER COM O TEXTO) ---
+# Mapeamento de IDs para o Texto do TCC:
+# A01-A05 = Grupo Controle
+# A06 = Aluno A1 (Texto) -> SUS 72.5
+# A07 = Aluno A2 (Texto) -> SUS 65.0
+# A08 = Aluno A5 (Texto) -> SUS 52.5
+# A09 = Aluno A3 (Texto) -> SUS 92.5
+# A10 = Aluno A4 (Texto) -> SUS 72.5
+# A11 = Aluno A6 (Texto) -> SUS 87.5
+
 dados_csv_string = """ID;Grupo;Idade;Periodo;Genero;Exp_Prog_Pre;Confianca_Pre;Q1_Pre;Q2_Pre;Q3_Pre;Q4_Pre;Q5_Pre;Q6_Pre;Q7_Pre;Q8_Pre;Q9_Pre;Q10_Pre;Q11_Pre;Q12_Pre;Q13_Pre;Q14_Pre;Pontuação_Pre;Exp_Prog_Pos;Confianca_Pos;Q1_Pos;Q2_Pos;Q3_Pos;Q4_Pos;Q5_Pos;Q6_Pos;Q7_Pos;Q8_Pos;Q9_Pos;Q10_Pos;Q11_Pos;Q12_Pos;Q13_Pos;Q14_Pos;Pontuação_Pos;SUS_Q1;SUS_Q2;SUS_Q3;SUS_Q4;SUS_Q5;SUS_Q6;SUS_Q7;SUS_Q8;SUS_Q9;SUS_Q10;NPS_Q11
 A01;Controle;24;5;1;3;2;1;0;1;1;1;1;0;0;1;0;0;1;0;0;7;3;3;1;1;1;1;1;1;1;1;1;1;1;1;1;0;13;;;;;;;;;;;
 A02;Controle;23;6;1;2;2;1;1;1;0;1;0;0;0;1;0;0;1;1;0;7;3;2;1;1;1;1;1;1;1;1;1;0;0;1;1;1;12;;;;;;;;;;;
@@ -29,10 +31,10 @@ A04;Controle;24;6;1;3;2;1;1;1;1;0;1;0;0;1;0;0;1;0;0;7;3;3;1;1;1;1;0;0;1;0;1;1;1;
 A05;Controle;33;6;1;2;3;1;1;1;1;1;1;1;1;0;1;1;1;1;1;13;2;3;1;0;1;1;1;1;1;0;1;0;0;1;1;1;10;;;;;;;;;;;
 A06;Tratamento;23;6;1;2;2;1;0;0;0;0;1;0;1;1;0;0;1;0;0;5;2;3;1;0;1;1;1;1;0;0;1;1;1;1;1;0;10;5;2;4;5;5;1;4;1;5;5;8
 A07;Tratamento;21;6;1;3;2;1;1;1;1;1;1;1;0;1;0;1;1;0;0;10;3;2;1;1;1;1;1;0;0;0;1;0;0;1;1;1;9;5;3;4;3;4;3;4;3;4;3;7
-A08;Tratamento;24;6;1;2;2;1;1;1;1;0;0;0;1;1;0;0;1;0;0;7;2;3;1;1;1;1;1;1;0;0;1;0;0;0;1;0;8;3;3;3;3;3;3;3;3;3;4;7
+A08;Tratamento;24;6;1;2;2;1;1;1;1;0;0;0;1;1;0;0;1;0;0;7;2;3;1;1;1;1;1;1;0;0;1;0;0;0;1;0;8;4;3;4;3;3;3;3;3;3;4;7
 A09;Tratamento;21;6;1;3;2;1;1;1;1;0;0;0;1;1;0;0;1;0;0;7;3;3;1;1;1;1;1;0;0;1;1;0;0;1;1;1;10;5;1;5;1;5;1;5;1;5;4;10
-A10;Tratamento;27;5;1;1;1;1;1;1;1;0;0;0;0;1;0;0;1;0;0;6;2;2;1;1;1;1;0;0;1;1;1;1;1;1;1;1;12;4;2;4;2;4;2;5;2;4;2;9
-A11;Tratamento;26;3;1;2;2;1;1;0;0;0;0;0;1;1;0;0;1;1;0;6;2;3;1;1;1;1;0;0;1;0;1;1;1;1;1;1;11;4;1;5;1;5;1;5;2;5;2;10
+A10;Tratamento;27;5;1;1;1;1;1;1;1;0;0;0;0;1;0;0;1;0;0;6;2;2;1;1;1;1;0;0;1;1;1;1;1;1;1;1;12;3;3;4;2;4;2;5;2;4;2;9
+A11;Tratamento;26;3;1;2;2;1;1;0;0;0;0;0;1;1;0;0;1;1;0;6;2;3;1;1;1;1;0;0;1;0;1;1;1;1;1;1;11;3;1;5;1;5;1;5;2;5;3;10
 """
 
 df_dados = pd.read_csv(io.StringIO(dados_csv_string), sep=';')
