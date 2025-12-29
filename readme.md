@@ -1,52 +1,28 @@
-  # Análise da Ferramenta VisuAlgo no Ensino de Árvores Binárias de Busca
+# Análise Estatística - TCC: Ensino de Estruturas de Dados com VisuAlgo
 
-Este repositório contém o conjunto de dados anonimizados e o script de análise estatística referente ao Trabalho de Conclusão de Curso (TCC) desenvolvido no **Instituto Federal de Sergipe (IFS) - Campus Itabaiana**.
+Este repositório contém o script de análise de dados utilizado no Trabalho de Conclusão de Curso (TCC) do Bacharelado em Ciência da Computação do Instituto Federal de Sergipe (IFS).
 
-O objetivo da pesquisa foi analisar a influência da ferramenta de visualização *VisuAlgo* no desempenho académico e na satisfação de estudantes de licenciatura durante a aprendizagem de Árvores Binárias de Busca (BST).
+**Título do Trabalho:** Dificuldades no Ensino de Estruturas de Dados com ênfase em Árvores Binárias de Busca: Uma Análise Comparativa entre o Método Tradicional e o Uso de um Software Educativo.
+**Autor:** Rone Clay Oliveira Andrade
+**Ano:** 2025
 
-## 📂 Estrutura do Repositório
+## 📊 Sobre a Análise
 
+O estudo utilizou uma abordagem quantitativa quase-experimental ($n=11$) comparando um Grupo Controle (Aula Expositiva) e um Grupo Experimental (Software VisuAlgo). Devido ao tamanho da amostra, foram aplicadas técnicas estatísticas computacionais para validação robusta dos resultados.
 
+O script Python realiza:
+1.  **Bootstrap (10.000 iterações):** Para gerar Intervalos de Confiança (IC 95%) das médias de ganho de aprendizagem, contornando a limitação da normalidade em amostras pequenas.
+2.  **Forest Plot (Tamanho de Efeito):** Visualização da diferença de desempenho segmentada por competência cognitiva (Fundamentos, Recursão, Operações).
+3.  **Análise de Usabilidade (UX):** Processamento dos dados da escala SUS (*System Usability Scale*) e NPS (*Net Promoter Score*).
+4.  **Clusterização (K-Means):** Agrupamento não-supervisionado dos alunos para identificar perfis de aprendizagem baseados em conhecimento prévio vs. ganho.
 
-* `data/`: Contém o ficheiro `dados_anonimizados.csv` com as notas e respostas dos questionários.
-* `scripts/`: Contém o script `analise_tcc.py` utilizado para o processamento dos dados.
-* `README.md`: Instruções e documentação do projeto.
+## 🚀 Como Executar
 
-## 📊 Dicionário de Dados
+O código foi projetado para rodar em ambientes Notebook (Jupyter ou Google Colab) ou como script Python standalone.
 
-O ficheiro `data/dados_anonimizados.csv` utiliza a seguinte estrutura:
+### Pré-requisitos
 
-| Variável | Descrição |
-| :--- | :--- |
-| `id_aluno` | Identificador numérico único para garantir o anonimato dos participantes. |
-| `grupo` | Classificação do participante: `controle` (aula tradicional) ou `experimental` (com VisuAlgo). |
-| `pre_teste` | Nota obtida na avaliação diagnóstica inicial. |
-| `pos_teste` | Nota obtida na avaliação após a intervenção pedagógica. |
-| `nps` | Pontuação de 0 a 10 para o cálculo do *Net Promoter Score* (apenas grupo experimental). |
-| `sus_q1` a `sus_q10` | Respostas (1-5) para as 10 perguntas da *System Usability Scale* (apenas grupo experimental). |
+As seguintes bibliotecas Python são necessárias:
 
-## ⚙️ Como Reproduzir a Análise
-
-Para executar os cálculos estatísticos (Bootstrap, SUS e NPS), precisará do Python instalado no seu ambiente.
-
-1.  **Instale as dependências necessárias:**
-    ```bash
-    pip install numpy pandas
-    ```
-
-2.  **Execute o script de análise:**
-    ```bash
-    python scripts/analise_estatistica.py
-    ```
-
-## 🧪 Metodologia Estatística
-
-Devido ao tamanho reduzido da amostra ($n=11$), a análise inferencial foi realizada utilizando a técnica de **Bootstrap** com 5.000 reamostragens para o cálculo dos Intervalos de Confiança (IC 95%). Esta técnica permite maior robustez científica em amostras pequenas. 
-
-A usabilidade foi medida através do protocolo SUS de Brooke (1996) e a satisfação via NPS (*Net Promoter Score*).
-
-## ⚖️ Ciência Aberta e Ética
-
-Este projeto segue os princípios da **Ciência Aberta** (*Open Science*), disponibilizando dados e algoritmos para garantir a reprodutibilidade da pesquisa. 
-
-Em conformidade com as diretrizes éticas, todos os dados foram anonimizados. Nomes, e-mails ou quaisquer
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn
