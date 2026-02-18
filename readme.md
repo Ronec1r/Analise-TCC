@@ -2,8 +2,8 @@
 
 Este repositório contém o script de análise de dados utilizado no Trabalho de Conclusão de Curso (TCC) do Bacharelado em Ciência da Computação do Instituto Federal de Sergipe (IFS).
 
-**Título do Trabalho:** Dificuldades no Ensino de Estruturas de Dados com ênfase em Árvores Binárias de Busca: Uma Análise Comparativa entre o Método Tradicional e o Uso de um Software Educativo.
-**Autor:** Rone Clay Oliveira Andrade
+**Título do Trabalho:** Dificuldades no Ensino de Estruturas de Dados com ênfase em Árvores Binárias de Busca: Uma Análise Comparativa entre o Método Tradicional e o Uso de um Software Educativo.<br>
+**Autor:** Rone Clay Oliveira Andrade<br>
 **Ano:** 2025
 
 ## 📊 Sobre a Análise
