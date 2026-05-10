@@ -1,10 +1,9 @@
-# Análise Estatística - TCC: Ensino de Estruturas de Dados com VisuAlgo
+# Análise Estatística: Ensino de Estruturas de Dados com VisuAlgo
 
-Este repositório contém o script de análise de dados utilizado no Trabalho de Conclusão de Curso (TCC) do Bacharelado em Ciência da Computação do Instituto Federal de Sergipe (IFS).
+Este repositório contém o script de análise de dados utilizado na pesquisa realizada.
 
-**Título do Trabalho:** Dificuldades no Ensino de Estruturas de Dados com ênfase em Árvores Binárias de Busca: Uma Análise Comparativa entre o Método Tradicional e o Uso de um Software Educativo.<br>
-**Autor:** Rone Clay Oliveira Andrade<br>
-**Ano:** 2025
+**Título do Trabalho:** Impacto da Visualização Algorítmica no Aprendizado de Estruturas de Dados: Uma Análise Empírica com o VisuAlgo.<br>
+**Ano:** 2026
 
 ## 📊 Sobre a Análise
 
