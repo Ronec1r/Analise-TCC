@@ -13,8 +13,8 @@ from sklearn.cluster import KMeans
 sns.set_style("ticks")
 plt.rcParams['figure.figsize'] = (10, 6)
 
-# --- 1. CARGA E PREPARAÇÃO DOS DADOS (CORRIGIDO PARA BATER COM O TEXTO) ---
-# Mapeamento de IDs para o Texto do TCC:
+# --- 1. CARGA E PREPARAÇÃO DOS DADOS ---
+# Mapeamento de IDs para o Texto do Trabalho:
 # A01-A05 = Grupo Controle
 # A06 = Aluno A1 (Texto) -> SUS 72.5
 # A07 = Aluno A2 (Texto) -> SUS 65.0
